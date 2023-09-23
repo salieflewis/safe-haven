@@ -462,4 +462,4 @@ export const isArtAbi = [
     stateMutability: 'nonpayable',
     type: 'function',
   },
-] as const;
+] as const
