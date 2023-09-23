@@ -1,7 +1,7 @@
-import { safeGoerli, allowlistPlugin } from '@/constants';
-import { useContractRead } from 'wagmi';
-import { allowlistPluginAbi } from '@/abi';
-import { type Hex } from 'viem';
+import { safeGoerli, allowlistPlugin } from '@/constants'
+import { useContractRead } from 'wagmi'
+import { allowlistPluginAbi } from '@/abi'
+import { type Hex } from 'viem'
 
 export function useOnAllowlist({ address }: { address: Hex }) {
   const { data: onAllowlist } = useContractRead({
@@ -9,9 +9,9 @@ export function useOnAllowlist({ address }: { address: Hex }) {
     abi: allowlistPluginAbi,
     functionName: 'allowlistedAddresses',
     args: [safeGoerli, address],
-  });
+  })
 
   return {
     onAllowlist,
-  };
+  }
 }
