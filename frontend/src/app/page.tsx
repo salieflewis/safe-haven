@@ -1,5 +1,10 @@
-import { Header } from '@/client'
+import { Header, Mint } from '@/client';
 
 export default function Home() {
-  return <Header />
+  return (
+    <div className='flex flex-col justify-between'>
+      <Header />
+      <Mint />
+    </div>
+  );
 }
