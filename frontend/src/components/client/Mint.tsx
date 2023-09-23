@@ -17,7 +17,7 @@ function IsArt() {
   });
 
   return (
-    <div className='flex rounded-full px-2 bg-slate-100 uppercase text-xs font-medium items-center'>
+    <div className='flex w-fit rounded-full px-2 bg-slate-100 uppercase text-xs font-medium items-center'>
       {JSON.stringify(getIsArt)}
     </div>
   );

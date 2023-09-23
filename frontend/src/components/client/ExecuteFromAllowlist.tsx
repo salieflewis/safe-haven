@@ -7,8 +7,12 @@ import {
 } from 'wagmi';
 import { type Hex, type Hash, zeroAddress } from 'viem';
 import { allowlistPluginAbi } from '@/abi';
-import { isArtGoerli, safeGoerli, safeProtocolManagerGoerli } from '@/constants';
-import { useGetNonce } from 'src/hooks';
+import {
+  isArtGoerli,
+  safeGoerli,
+  safeProtocolManagerGoerli,
+} from '@/constants';
+import { useGetNonce, useOnAllowlist } from 'src/hooks';
 import { useState, useEffect } from 'react';
 
 interface SafeProtocolAction {
@@ -28,6 +32,7 @@ interface SafeTransaction {
 export function ExecuteFromAllowlist() {
   const { address } = useAccount();
   const { nonce } = useGetNonce();
+  const { onAllowlist } = useOnAllowlist({ address: address as Hex });
 
   const safeTx: SafeTransaction = {
     actions: [
@@ -55,7 +60,10 @@ export function ExecuteFromAllowlist() {
   });
 
   return (
-    <div className='flex flex-col'>
+    <div>
+      <div className='flex w-fit rounded-full px-2 bg-slate-100 uppercase text-xs font-medium items-center'>
+        {JSON.stringify(onAllowlist)}
+      </div>
       <button
         onClick={() => write?.()}
         className='border border-black border-dashed p-2'
