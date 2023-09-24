@@ -109,7 +109,7 @@ export function ExecuteFromAllowlist() {
           ? 'connected address is on allowlist'
           : isConnected && JSON.stringify(onAllowlist) === 'false'
           ? 'connected address is not on allowlist'
-          : 'connect to determine execution permission'}
+          : 'connect to determine execution permissions'}
       </div>
     </div>
   )
